@@ -11,9 +11,9 @@ const SliderMovie = ({ movies }) => {
   console.log
 
   return (
-    <Carousel>
+    <Carousel fade>
       {peliculas.map((pelicula) => (
-        <Carousel.Item key={pelicula.id}>
+        <Carousel.Item key={pelicula.id} interval={4000}>
           <img
             className="d-block w-100"
             src={`https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}`}

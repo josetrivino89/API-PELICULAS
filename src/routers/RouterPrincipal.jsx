@@ -19,7 +19,7 @@ const RouterPrincipal = () => {
 
         {/* navbar */}
     <Navegacion/>    
-    <Container>
+    <Container fluid>
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/estrenos' element={<Estrenos/>}/>
