@@ -1,10 +1,10 @@
 import React from 'react'
 import { Row,Col } from 'react-bootstrap'
-import SliderMovie from '../components/Layout/SliderMovie'
+import SliderMovie from '../components/SliderMovie'
 import useFetch from '../hooks/useFetch'
 import {URL_API,API_KEY} from "../Utils/Constans"
 
-const URL_API_NEW_PELI = `${URL_API}/movie/550?api_key=${API_KEY}=en=ES`
+const URL_API_NEW_PELI = `${URL_API}/movie/now_playing?api_key=${API_KEY}=en=ES`
 
 const Home = () => {
 
