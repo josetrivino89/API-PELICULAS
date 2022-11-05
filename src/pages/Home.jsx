@@ -1,18 +1,27 @@
 import React from 'react'
+import { Row,Col } from 'react-bootstrap'
+import SliderMovie from '../components/Layout/SliderMovie'
 import useFetch from '../hooks/useFetch'
+import {URL_API,API_KEY} from "../Utils/Constans"
 
-
+const URL_API_NEW_PELI = `${URL_API}/movie/550?api_key=${API_KEY}=en=ES`
 
 const Home = () => {
 
-    const newPeliculas= useFetch("https://api.themoviedb.org/3/movie/550?api_key=06d31e2637344994584514ea6e9eae50&language=en=ES")
+    const newPeliculas= useFetch(URL_API_NEW_PELI)
 
     console.log(newPeliculas); //minuto 1:05:58
 
 
   return (
-    <div>Home</div>
-  )
+    <>
+      <SliderMovie movies={newPeliculas} />
+        <Row>
+          <Col>Lista de Peliculas Populares</Col>
+          <Col>Peliculas mas votadas</Col>
+        </Row>
+    </>
+  );
 }
 
 export default Home
