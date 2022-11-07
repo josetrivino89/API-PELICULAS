@@ -1,0 +1,9 @@
+.Lista-Pelis{
+    max-height:400px ;
+    overflow: scroll;
+   
+}
+.Lista-Pelis .list-group-item.list-group-item-action{
+    color:white;
+    background-color: rgb(157, 155, 155);
+}

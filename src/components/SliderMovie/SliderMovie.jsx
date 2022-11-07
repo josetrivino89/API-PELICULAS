@@ -16,7 +16,7 @@ const SliderMovie = ({ movies }) => {
         <Carousel.Item key={pelicula.id} interval={4000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original/${pelicula.backdrop_path}`}
             alt={pelicula.original_title}
           />
           <Carousel.Caption>
