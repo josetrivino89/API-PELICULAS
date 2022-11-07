@@ -4,6 +4,8 @@ import useFetch from "../../hooks/useFetch";
 import { URL_API, API_KEY } from "../../Utils/Constans";
 import Loading from "../../components/Layout/Loading";
 import { Col, Row } from "react-bootstrap";
+import "../Pelicula/index.css"
+//*27:36 clase 02-11-2022
 
 const Pelicula = () => {
   const params = useParams();
@@ -24,10 +26,10 @@ const Pelicula = () => {
         backgroundImage:`url('https://image.tmdb.org/t/p/original${peli.backdrop_path}')`,}}>
       <div className="dark-pelicula" />
       <Row>
-        <Col md={6} className="pelicula-poster d-flex justy-content-center align-items-center">
+        <Col md={6} style={{ zIndex: 1 }} className="d-flex justify-content-center align-items-center ">
           <div
             style={{
-              backgroundImage:`url('https://image.tmdb.org/t/p/original${peli.poster_path}')`,}}/>
+              backgroundImage:`url('https://image.tmdb.org/t/p/original${peli.poster_path}' )`,}} className="pelicula-poster"/>
         </Col>
         <Col md={6} className="pelicula-info d-flex">
           <div>

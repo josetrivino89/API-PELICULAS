@@ -1,0 +1,30 @@
+
+.dark-pelicula{
+    position: absolute;
+    width: 208.6vh;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.8;      
+    
+   
+  }
+  
+  .backdrop-Pelicula{
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+    ;
+  
+  }
+  .pelicula-poster{
+    z-index: 1;
+    margin-top: 45px;
+    height: 610px ;
+    width: 400px;
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
