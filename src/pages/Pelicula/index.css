@@ -1,10 +1,10 @@
 
 .dark-pelicula{
     position: absolute;
-    width: 208.6vh;
+    width: 215vh;
     height: 100vh;
     background-color: black;
-    opacity: 0.8;      
+    opacity: 0.6;      
     
    
   }
@@ -20,11 +20,43 @@
   }
   .pelicula-poster{
     z-index: 1;
-    margin-top: 45px;
-    height: 610px ;
-    width: 400px;
+    margin-top: 50px;
+    height: 550px ;
+    width: 390px;
     background-position:center ;
     background-repeat: no-repeat;
     background-size: cover;
 
+  }
+  .pelicula-info{
+    display: flex;
+    height: 90vh;
+    color: #fff;
+    text-decoration:#fff;
+  }
+
+  .pelicula-info .pelicula-header{
+    display: flex;
+    align-items:flex-start ;
+    justify-content: space-between;
+  }
+  .pelicula-info .pelicula-header h1{
+    color: #fff;
+    margin: 0;
+    font-size: 60px;
+    position: absolute;
+  }
+  .pelicula-info .pelicula-header h1 span{
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 10px;
+    opacity: 0.5;
+    position: absolute;
+    color: #fff;
+    text-decoration:#fff;
+  }
+  .pelicula-content{
+    margin-top: 90px;
+    margin-right: 90px;
+    position: absolute;
   }

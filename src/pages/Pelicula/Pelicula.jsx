@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { URL_API, API_KEY } from "../../Utils/Constans";
 import Loading from "../../components/Layout/Loading";
-import { Col, Row } from "react-bootstrap";
-import "../Pelicula/index.css"
+import { Col, Row, Button } from "react-bootstrap";
+import "../Pelicula/index.css";
+import moment from "moment";
+
 //*27:36 clase 02-11-2022
 
 const Pelicula = () => {
@@ -23,20 +25,42 @@ const Pelicula = () => {
     <div
       className="backdrop-Pelicula"
       style={{
-        backgroundImage:`url('https://image.tmdb.org/t/p/original${peli.backdrop_path}')`,}}>
+        backgroundImage: `url('https://image.tmdb.org/t/p/original${peli.backdrop_path}')`,
+      }}
+    >
       <div className="dark-pelicula" />
-      <Row>
-        <Col md={6} style={{ zIndex: 1 }} className="d-flex justify-content-center align-items-center ">
+      <Row className=" d-flex justify-content-center align-items-center ">
+        <Col
+          md={6}
+          style={{ zIndex: 1 }}
+          className=" d-flex justify-content-center align-items-center "
+        >
           <div
             style={{
-              backgroundImage:`url('https://image.tmdb.org/t/p/original${peli.poster_path}' )`,}} className="pelicula-poster"/>
+              backgroundImage: `url('https://image.tmdb.org/t/p/original${peli.poster_path}' )`,
+            }}
+            className="pelicula-poster d-flex justify-content-center align-items-center"
+          />
         </Col>
-        <Col md={6} className="pelicula-info d-flex">
-          <div>
-            <h1 style={{ zindex: 1 }}>{peli.title}</h1>
-            <div className="pelicula-content" style={{ zindex: 1 }}>
-              <h3>General</h3>
-            </div>
+        <Col md={6} className="pelicula-info">
+          <div className="pelicula-header">
+            <h1 style={{ zindex: 1 }}>
+              {peli.title}
+              <span>
+                {moment(peli.release_date, "YYYY-MM-DD").format("YYYY")}{" "}
+              </span>
+            </h1>
+          </div>
+          <div className="pelicula-content" style={{ zindex: 1 }}>
+            <h3>General</h3>
+            <p>{peli.overview}</p>
+            <h3>Generos</h3>
+            <ul>
+              {peli.genres.map((genero) => (
+                <li key={genero.id}>{genero.name}</li>
+              ))}
+            </ul>
+          <Button onClick={openModal}> Ver Trailer </Button>
           </div>
         </Col>
       </Row>
