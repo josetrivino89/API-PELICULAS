@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { URL_API, API_KEY } from "../../Utils/Constans";
@@ -6,18 +6,27 @@ import Loading from "../../components/Layout/Loading";
 import { Col, Row, Button } from "react-bootstrap";
 import "../Pelicula/index.css";
 import moment from "moment";
+import ModalVideo from "../../components/ModalVideo/ModalVideo";
 
 //*27:36 clase 02-11-2022
 
 const Pelicula = () => {
   const params = useParams();
+  const [showModal, setShowModal] = useState(false);
+
   const { id } = params;
   const URL_API_PELICULA = `${URL_API}/movie/${id}?api_key=${API_KEY}=en=ES`;
+  const URL_VIDEO = `${URL_API}/movie/${id}/videos?api_key=${API_KEY}=en=ES`;
+
+  const video = useFetch(URL_VIDEO)
 
   const pelicula = useFetch(URL_API_PELICULA);
 
   if (!pelicula.result || pelicula.loading) return <Loading />;
   const peli = pelicula.result;
+  const openModal = ()=> {setShowModal(true)}
+
+  const closeModal = ()=>{setShowModal(false)}
 
   console.log(pelicula);
 
@@ -47,7 +56,7 @@ const Pelicula = () => {
             <h1 style={{ zindex: 1 }}>
               {peli.title}
               <span>
-                {moment(peli.release_date, "YYYY-MM-DD").format("YYYY")}{" "}
+                {moment(peli.release_date, "YYYY-MM-DD").format("YYYY")}
               </span>
             </h1>
           </div>
@@ -60,7 +69,20 @@ const Pelicula = () => {
                 <li key={genero.id}>{genero.name}</li>
               ))}
             </ul>
-          <Button onClick={openModal}> Ver Trailer </Button>
+            {
+              video.result.results && (
+                <>
+                <Button onClick={openModal}> Ver Trailer </Button>
+                  <ModalVideo
+                    site={video.result.results[0].site}
+                    videoKey={video.result.results[0].key}
+                  show={showModal}
+                  closeModal={closeModal}
+                  />
+                </>
+              )
+            }
+          
           </div>
         </Col>
       </Row>
